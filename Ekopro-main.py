@@ -1,13 +1,29 @@
 import customtkinter as ctk
 import requests
 
+version = (1.0,"kararlı sürüm")
+
+def hata():
+	uyari = ctk.CTk()
+	uyari.title("Ekopro Hata: Veri bağlanıtsı erişilemedi")
+	uyari.minsize(800,600)
+	uyari.geometry("800x600+500+40")
+	uyari.maxsize(800,600)
+
+	uyr = ctk.CTkLabel(
+		uyari,
+		text=f"\n\n\nVeri tabanına ulaşılamıyor :/",
+		font=("italic",20)
+		).pack()
+	uyari.mainloop()
+
 def program():
 	try:
 		window = ctk.CTk()
 		window.title("Ekopro")
-		window.minsize(500,600)
-		window.geometry("500x600+500+40")
-		window.maxsize(500,600)
+		window.minsize(800,600)
+		window.geometry("800x600+500+40")
+		window.maxsize(800,600)
 
 
 		#Tema ayarları
@@ -126,25 +142,12 @@ def program():
 
 		imza = ctk.CTkLabel(
 			window,
-			text="V1.1 | Yiğit Çıtak Inc. 2024©Tüm haklar saklıdır"
+			text=f"Ekopro github: YigitC7/Ekopro | {version[0]} | Yiğit Çıtak"
 			).pack(pady=30)
 
 		window.mainloop()
 	except:
-		uyari = ctk.CTk()
-		uyari.title("Ekopro Hata: Veri bağlanıtsı erişilemedi")
-		uyari.minsize(500,600)
-		uyari.geometry("500x600+500+40")
-		uyari.maxsize(500,600)
-		uyari.iconbitmap("icon.ico")
-
-		uyr = ctk.CTkLabel(
-			uyari,
-			text="İnternet bağlantınızı kontol edin\n\n\n\nError 020 :(",
-			font=("italic",20)
-			).pack()
-		uyari.mainloop()
-
+		hata()
 
 
 if __name__ == "__main__":
